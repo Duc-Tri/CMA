@@ -10,17 +10,9 @@ namespace SerializeProject
     {
         static void Main(string[] args)
         {
-            Print();
             testSerialization();
             Console.ReadKey();
         }
-
-
-
-
-
-        
-
 
         //=========================================================================================
         private static void testSerialization()
@@ -34,20 +26,27 @@ namespace SerializeProject
             };
 
 
-            // List<Person> people = GetListOfPeople();
+            List<Person> people = GenerateListOfPeople();
             XmlSerialization.WriteToXmlFile<Person>("person.txt", person);
-            //XmlSerialization.WriteToXmlFile<List<People>>("C:\people.txt", people);
+            XmlSerialization.WriteToXmlFile<List<Person>>("list_people.txt", people);
 
             // Then in some other function.
             person = XmlSerialization.ReadFromXmlFile<Person>("person.txt");
-            //List<Person> people = XmlSerialization.ReadFromXmlFile<List<Person>>("C:\people.txt");
+            people = XmlSerialization.ReadFromXmlFile<List<Person>>("list_people.txt");
 
             Console.WriteLine(person.ToString());
+            Console.WriteLine(Person.display(people));
         }
-
-        static void Print()
+        //=========================================================================================
+        private static List<Person> GenerateListOfPeople()
         {
-            Console.WriteLine("coucou");
+            //const int MAX_PEOPLE = 10;
+            return new List<Person> { new Person() { Name = "Gertrude", Age = 10, HomeAddress = new Address() { StreetAddress = "rue de la République", City = "Marseille" } },
+                new Person() { Name = "Dominique", Age = 11, HomeAddress = new Address() { StreetAddress = "rue des fleurs", City = "Lille" }},
+                new Person() { Name = "Christophe", Age = 12, HomeAddress = new Address() { StreetAddress = "rue du zoo", City = "Arles" }},
+                new Person() { Name = "Gregory", Age = 13, HomeAddress = new Address() { StreetAddress = "rue félix faure", City = "Strasbourg" }},
+                new Person() { Name = "Sabrina", Age = 14, HomeAddress = new Address() { StreetAddress = "boulevard Magenta", City = "Lyon" }}
+            };
         }
     }
 
@@ -60,11 +59,20 @@ namespace SerializeProject
 
         public override string ToString()
         {
-            return (Name + " age:" + Age + " habite:" + HomeAddress.ToString());
+            return (Name + " age : " + Age + " - habite à  : " + HomeAddress.ToString());
+        }
+        //=========================================================================================
+        internal static string display(List<Person> people)
+        {
+            string s = "";
+            foreach (Person p in people)
+                s += p.ToString() + "\n";
+            //
+            return s;
         }
 
         [NonSerialized]
-        public string ThisWillNotBeWrittenToTheFile = "because of the [XmlIgnore] attribute.";
+        public string ThisWillNotBeWrittenToTheFile = "because of the [XmlIgnore] attribute."; // DONT WORK
     }
 
     public class Address

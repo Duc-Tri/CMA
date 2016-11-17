@@ -8,7 +8,7 @@ namespace SerializeProject
 {
     class BankAccountMain
     {
-        static void Main(string[] args)
+        static void Main00(string[] args)
         {
             //testBankAccount();
             testSwitch();
