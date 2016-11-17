@@ -67,8 +67,8 @@ namespace SerializeProject
 
         public override string ToString()
         {
-            return StreetAddress + " - " + City.ToUpper();
+            return StreetAddress + " (" + City.ToUpper() + ") ";
+
         }
     }
-
 }
