@@ -15,6 +15,13 @@ namespace SerializeProject
             Console.ReadKey();
         }
 
+
+
+
+
+        
+
+
         //=========================================================================================
         private static void testSerialization()
         {
@@ -51,7 +58,7 @@ namespace SerializeProject
         public Address HomeAddress { get; set; }
         private string _thisWillNotGetWrittenToTheFile = "because it is not public.";
 
-        internal string ToString()
+        public override string ToString()
         {
             return (Name + " age:" + Age + " habite:" + HomeAddress.ToString());
         }
@@ -67,7 +74,7 @@ namespace SerializeProject
 
         public override string ToString()
         {
-            return StreetAddress + " (" + City.ToUpper() + ") ";
+            return StreetAddress + " (" + City.ToUpper() + ")";
 
         }
     }
