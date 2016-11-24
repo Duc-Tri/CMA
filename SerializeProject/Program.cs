@@ -10,8 +10,30 @@ namespace SerializeProject
     {
         static void Main(string[] args)
         {
-            testSerialization();
+            //testSerialization();
+            testDate();
             Console.ReadKey();
+        }
+        
+        //=========================================================================================
+        private static void testDate()
+        {
+            Console.WriteLine(MyDate.Jour(3));
+            Console.WriteLine(MyDate.getWeekDay(24,11,2016));
+            MyDate d = new MyDate(29, 11, 2016);
+
+            d = new MyDate(29, 2, 1600); // bi
+            d = new MyDate(29, 2, 2000); // bi
+
+            d = new MyDate(29, 2, 1700);
+            d = new MyDate(29, 2, 1800);
+            d = new MyDate(29, 2, 1900);
+
+            d = new MyDate(29, 2, 2100);
+            d = new MyDate(29, 2, 2200);
+            d = new MyDate(29, 2, 2300);
+
+            d = new MyDate(29, 2, 2400); // bi
         }
 
         //=========================================================================================
@@ -83,7 +105,22 @@ namespace SerializeProject
         public override string ToString()
         {
             return StreetAddress + " (" + City.ToUpper() + ")";
-
         }
     }
+
+
+
+
+
+    //#############################################################################################
+    // 
+    //#############################################################################################
+
+    
+
+
+
+
+
+
 }
