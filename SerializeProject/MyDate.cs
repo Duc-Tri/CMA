@@ -74,14 +74,12 @@ namespace SerializeProject
             return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
         }
 
-
-
         public static string Jour(int i)
         {
             return joursSemaine[i];
         }
 
-        public static WeekDay getWeekDay(int day, int month, int year)
+        public static WeekDay getWeekDay_KO(int day, int month, int year)
         {
             /*
              Pour une date de la forme jour/mois/année où "jour" prend une valeur de 01 à 31, 
@@ -95,14 +93,55 @@ namespace SerializeProject
             0 = dimanche, 1 = lundi, 2 = mardi, etc.
             */
 
-            int c = (14 - month) / 12;
-            int a = year - c;
-            int m = month + 12 * c - 2;
-            int j = (day + a + (a / 4) + (a / 100) + (a / 400) + ((31 * m) / 12)) % 7;
+            double c = Math.Floor((14 - month) / 12.0);
+            double a = year - c;
+            double m = month + 12 * c - 2;
+            double j = (day + a + Math.Floor(a / 4.0) +
+                                  Math.Floor(a / 100.0) +
+                                  Math.Floor(a / 400.0) +
+                                  Math.Floor((31 * m) / 12.0)) % 7;
 
             return (WeekDay)j; // FAUX !!!
-
         }
+
+
+        public static WeekDay getWeekDay2(int day, int month, int year)
+        {
+            /*
+           Mike Keith déclare lui-même qu'il s'agit là de la « plus simple formule possible » pour le calcul du jour de la semaine, « la meilleure qui puisse être construite », ajoute-t-il.
+           Dans sa forme opérationnelle, son algorithme s'écrit :
+
+           Jour de semaine : si m >= 3, D = { [(23m)/9] + d + 4 + y + [y/4] - [y/100] + [y/400] - 2 } mod 7
+           si m < 3, D = { [(23m)/9] + d + 4 + y + [z/4] - [z/100] + [z/400] } mod 7
+
+           Comme Mike Keith est un mathématicien américain, D = Day pour Jour ; M = Month pour Mois et Y = Year pour Année
+           Pour l'explication de la division par 100 et par 400, c'est pour savoir si l'année est bissextile  :
+           Si Y n'est pas divisible par 4, l'année n'est pas bissextile.
+           Si Y est divisible par 4, l'année est bissextile sauf si A est divisible par 100 et pas par 400.
+           D = Jour de semaine (D = 0 à 6; 0 = Dimanche, 1 = Lundi, ... , 6 = Samedi)
+           [x] signifie le nombre entier résultant de la division, le reste étant ignoré
+           m = Mois (m = 1 à 12; 1 = Janvier, 2 = Février, 3 = Mars, ... , 12 = Décembre) m >= 3 signifie m supérieur ou égal à 3
+           d = Jour (d = 1 à 31)
+           y = année
+           z = y - 1 si m < 3
+           z = y si m >= 3
+           Modulo 7 ou mod 7 = reste de la division par 7
+           */
+
+            int d;
+            if (month >= 3)
+            {
+                d = ((23 * month) / 9 + day + 4 + year + (year / 4) - (year / 100) + (year / 400) - 2) % 7;
+            }
+            else
+            {
+                int z = year - 1;
+                d = ((23 * month) / 9 + day + 4 + year + (z / 4) - (z / 100) + (z / 400)) % 7;
+            }
+            return (WeekDay)d;
+        }
+
+
 
     }
 
