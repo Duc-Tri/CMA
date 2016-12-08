@@ -13,6 +13,112 @@ namespace SerializeProject
         {
             //testSerialization();
             //testDate();
+            testDivers0();
+
+            bool continuer = false;
+            do
+            {
+                int converted;
+                Console.WriteLine("input un truc : ");
+                string input = Console.ReadLine();
+                int.TryParse(input, out converted);
+                Console.WriteLine("resultat de age : " + converted);
+
+                ConsoleKey k;
+                Console.WriteLine("continuer ? (o/autre touche) ");
+                k = Console.ReadKey().Key;
+                continuer = (k == ConsoleKey.O);
+            }
+            while (continuer);
+        }
+
+        private static void testDivers0()
+        {
+            Console.WriteLine("\t somme entiers consécutifs: " + SumInteger(1, 10));
+            Console.WriteLine("\t moyenne : " + Average(new List<double>() { 1.0, 5.5, 9.9, 2.8, 9.6 }));
+            //Console.WriteLine("somme entiers communs: "+
+            SumMultiple();
+
+            foreach(string p in Environment.GetCommandLineArgs())
+            {
+                Console.WriteLine("arg: " + p);
+            }
+        }
+
+        private static int SumMultiple()
+        {
+            List<int> multiple3 = new List<int>();
+            List<int> multiple5 = new List<int>();
+            for (int i = 1; i <= 100; i++)
+            {
+                if (i % 3 == 0)
+                    multiple3.Add(i);
+                if (i % 5 == 0)
+                    multiple5.Add(i);
+            }
+            //
+            Console.WriteLine("\t multiples de 3: " + afficher(multiple3));
+            Console.WriteLine("\t multiples de 5: " + afficher(multiple5));
+            //
+            int index3 = 0;
+            int index5 = 0;
+            int somme = 0;
+            string chaine = "";
+            for (index3 = 0; index3 < multiple3.Count; index3++)
+            {
+                if (multiple3[index3] == multiple5[index5])
+                {
+                    chaine += (somme != 0 ? " + " : "") + multiple3[index3];
+                    somme += multiple3[index3];
+                    index5++;
+                }
+                else if (multiple3[index3] > multiple5[index5])
+                {
+                    index5++;
+                }
+            }
+
+            chaine += " = " + somme;
+            Console.WriteLine("\t Somme des entiers communs: " + chaine );
+
+            return somme;
+        }
+
+        private static string afficher(List<int> list)
+        {
+            string chaine = "";
+            foreach (double d in list)
+                chaine += d + "_";
+            //
+            return chaine;
+        }
+
+        private static double Average(List<double> list)
+        {
+            double somme = 0;
+            foreach (double d in list)
+                somme += d;
+            //
+            return (somme / list.Count);
+        }
+
+        private static int SumInteger(int v1, int v2)
+        {
+            int somme = 0;
+            for (int val = v1; val <= v2; val++)
+            {
+                somme += val;
+            }
+            return somme;
+        }
+
+
+
+
+        //=========================================================================================
+
+        private static void testGreetings()
+        {
             testGreetingsDay(DateTime.Now);
             testGreetingsDay(new DateTime(2016, 11, 29, 17, 0, 0)); //bonjour
             testGreetingsDay(new DateTime(2016, 11, 30, 7, 0, 0)); //bonsoir
@@ -23,9 +129,8 @@ namespace SerializeProject
             testGreetingsDay(new DateTime(2016, 12, 4, 8, 0, 0)); //bon weekend
             testGreetingsDay(new DateTime(2016, 12, 5, 8, 0, 0)); //bon weekend
             testGreetingsDay(new DateTime(2016, 12, 5, 10, 0, 0)); //bonjour
-            Console.ReadKey();
-        }
 
+        }
         //=========================================================================================
         private static void testGreetingsDay(DateTime dt)
         {
@@ -188,3 +293,4 @@ namespace SerializeProject
 
 
 }
+
