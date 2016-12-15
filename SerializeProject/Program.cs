@@ -13,8 +13,9 @@ namespace SerializeProject
         {
             //testSerialization();
             //testDate();
-            testDivers0();
+            //            testDivers0();
 
+            /*
             bool continuer = false;
             do
             {
@@ -30,6 +31,11 @@ namespace SerializeProject
                 continuer = (k == ConsoleKey.O);
             }
             while (continuer);
+            */
+            for (;;)
+            {
+                DevinerNombre.demanderJoueur();
+            }
         }
 
         private static void testDivers0()
@@ -39,7 +45,7 @@ namespace SerializeProject
             //Console.WriteLine("somme entiers communs: "+
             SumMultiple();
 
-            foreach(string p in Environment.GetCommandLineArgs())
+            foreach (string p in Environment.GetCommandLineArgs())
             {
                 Console.WriteLine("arg: " + p);
             }
@@ -79,7 +85,7 @@ namespace SerializeProject
             }
 
             chaine += " = " + somme;
-            Console.WriteLine("\t Somme des entiers communs: " + chaine );
+            Console.WriteLine("\t Somme des entiers communs: " + chaine);
 
             return somme;
         }
