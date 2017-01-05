@@ -32,10 +32,33 @@ namespace SerializeProject
             }
             while (continuer);
             */
+            /*
             for (;;)
             {
                 DevinerNombre.demanderJoueur();
             }
+            */
+            Car car1 = new Car();
+            Car car2 = new Car();
+
+            car1.start();
+            car1.run(100);
+            //car1.checkSpeed();
+            car1.run(140);
+            car1.Model = "AUDI ROASTER";
+            car1.run(90);
+            //car1.checkSpeed();
+
+            car1 = null;
+
+            CoffeeMachine machineCafe = new CoffeeMachine() { ID = 999, ex = 10f };
+
+            Console.WriteLine(machineCafe.ID);
+            int id_mc = machineCafe.ID;
+
+            machineCafe.ID = 1;
+
+            Console.ReadKey();
         }
 
         private static void testDivers0()

@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
     <Compile Include="Car.cs" />
+    <Compile Include="CoffeeMachine.cs" />
     <Compile Include="DevinerNombre.cs" />
     <Compile Include="MyDate.cs" />
     <Compile Include="Program.cs" />
