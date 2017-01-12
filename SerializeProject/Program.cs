@@ -19,21 +19,38 @@ namespace SerializeProject
 
 
 
-            testDivers2();
+            testPOO01();
             Console.ReadKey();
 
         }
 
-        private static void testDivers2()
+        private static void testPOO01()
         {
+            /*
             Animal animo = new Animal();
             animo.Legs = 3;
             animo.Breath();
 
+            
             Dog adog = new Dog();
             adog.Breath();
             adog.Legs = 4;
             adog.Bark();
+            */
+
+
+            List<Animal> ark = new List<Animal>();
+            ark.Add(new Cat("Gros minet"));
+            ark.Add(new Dog("Pluto"));
+            ark.Add(new Cat("Tom"));
+            ark.Add(new Dog("Dingo"));
+            ark.Add(new Cat("Isidore"));
+            ark.Add(new Dog("Rantanplan"));
+
+            foreach(Animal an in ark)
+            {
+                an.Breath();
+            }
         }
 
         private static void testDevinenombre()
@@ -349,4 +366,5 @@ namespace SerializeProject
 
 
 }
+
 

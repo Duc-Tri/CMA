@@ -62,6 +62,7 @@
     <Compile Include="Animal.cs" />
     <Compile Include="BankAccount.cs" />
     <Compile Include="Car.cs" />
+    <Compile Include="Cat.cs" />
     <Compile Include="CoffeeMachine.cs" />
     <Compile Include="DevinerNombre.cs" />
     <Compile Include="Dog.cs" />

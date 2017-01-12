@@ -8,6 +8,18 @@ namespace SerializeProject
 {
     public class Animal
     {
+        private bool isalive;
+
+        public bool isAlive
+        {
+            get { return isalive; }
+            set { isalive = value; }
+        }
+
+        protected int age;
+
+        public string name;
+
         private int legs;
 
         public int Legs
@@ -23,9 +35,18 @@ namespace SerializeProject
 
         public void Breath()
         {
-            Console.WriteLine("je respire");
+            Console.WriteLine(name + " respire !");
         }
 
+        public Animal(string nom)
+        {
+            name = nom;
+        }
+        public Animal()
+        {
+            Console.WriteLine("CONSTRUCTEUR PAR DEFAUT ANIMAL !!!");
+
+        }
 
 
     } // end class ________________________________________________________________________________
