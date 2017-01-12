@@ -59,10 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animal.cs" />
     <Compile Include="BankAccount.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="CoffeeMachine.cs" />
     <Compile Include="DevinerNombre.cs" />
+    <Compile Include="Dog.cs" />
     <Compile Include="MyDate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

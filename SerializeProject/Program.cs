@@ -15,7 +15,29 @@ namespace SerializeProject
             //testDate();
             //            testDivers0();
 
-            /*
+
+
+
+
+            testDivers2();
+            Console.ReadKey();
+
+        }
+
+        private static void testDivers2()
+        {
+            Animal animo = new Animal();
+            animo.Legs = 3;
+            animo.Breath();
+
+            Dog adog = new Dog();
+            adog.Breath();
+            adog.Legs = 4;
+            adog.Bark();
+        }
+
+        private static void testDevinenombre()
+        {     /*
             bool continuer = false;
             do
             {
@@ -32,12 +54,18 @@ namespace SerializeProject
             }
             while (continuer);
             */
-            /*
-            for (;;)
-            {
-                DevinerNombre.demanderJoueur();
-            }
-            */
+              /*
+              for (;;)
+              {
+                  DevinerNombre.demanderJoueur();
+              }
+              */
+        }
+
+        private static void testDivers1()
+        {
+
+
             Car car1 = new Car();
             Car car2 = new Car();
 
@@ -58,7 +86,6 @@ namespace SerializeProject
 
             machineCafe.ID = 1;
 
-            Console.ReadKey();
         }
 
         private static void testDivers0()

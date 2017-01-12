@@ -30,7 +30,7 @@ namespace SerializeProject
         {
             if (ALEATOIRE < 0)
             {
-                ALEATOIRE = new Random().Next(MIN, MAX+1);
+                ALEATOIRE = new Random().Next(MIN, MAX + 1);
                 NB_COUPS = 0;
             }
 
@@ -40,8 +40,7 @@ namespace SerializeProject
             do
             {
                 Console.ForegroundColor = ConsoleColor.White;
-
-                Console.WriteLine((NB_COUPS+1)+ ") Entrer un nombre entre {0} et {1}  : ",MIN,MAX);
+                Console.WriteLine((NB_COUPS + 1) + ") Entrer un nombre entre {0} et {1}  : ", MIN, MAX);
                 Console.Beep(262, 800);
                 isnumber = int.TryParse(Console.ReadLine(), out val);
             }
@@ -66,7 +65,6 @@ namespace SerializeProject
                     Console.WriteLine("TROP PETIT !");
                     break;
             }
-
         }
 
 
