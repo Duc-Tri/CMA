@@ -17,11 +17,30 @@ namespace SerializeProject
 
 
 
+            //testPOO02();
 
+            //testPOO01();
+            testPOO03();
 
-            testPOO01();
             Console.ReadKey();
 
+        }
+
+        private static void testPOO03()
+        {
+            Animal c = new Cat();
+            Dog d = (Dog)c;
+            Console.WriteLine("dog ? " +d);
+
+
+        }
+
+        private static void testPOO02()
+        {
+            Car car1 = new Car();
+            Car car2 = new Car("rouge");
+
+            Object o = new Car("rose");
         }
 
         private static void testPOO01()
@@ -37,7 +56,6 @@ namespace SerializeProject
             adog.Legs = 4;
             adog.Bark();
             */
-
 
             List<Animal> ark = new List<Animal>();
             ark.Add(new Cat("Gros minet"));
@@ -366,5 +384,6 @@ namespace SerializeProject
 
 
 }
+
 
 

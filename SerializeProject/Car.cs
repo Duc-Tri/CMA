@@ -20,15 +20,22 @@ namespace SerializeProject
         public string Color { get { return color; } set { color = value; } }
         public string Model { get { return model; } set { model = value; } }
 
-        public Car()
+        public Car() : base()
         {
+            Console.WriteLine("Constructeur par défaut");
             total++;
             id = total;
             speed = 0;
             color = "bleu";
             model = "2 CV";
-            Console.WriteLine("Constructeur " + modelID);
+
         }
+
+        public Car(string col) : this()
+        {
+            Console.WriteLine("Constructeur avec COL");
+        }
+
         private string modelID
         {
             get

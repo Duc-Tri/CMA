@@ -8,8 +8,10 @@ namespace SerializeProject
 {
     class Cat:Animal
     {
-        private Cat()
+        public Cat()
         {
+            //super();
+
             isAlive = true;
             Legs = 4;
         }
